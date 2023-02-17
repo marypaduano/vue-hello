@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Vue</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Vue</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<div id="app">
-    <h1>{{ message }}</h1>
-    <p>{{ text }}</p>
-    <img v-bind:src= "img"> 
+  <div id="app">
+    <div :class="containerClass">
+      <h1 :class="colorClass">{{ message }}</h1>
+      <p :class="subtitleClass">{{ text }}</p>
+      <img v-bind:src="img">
+    </div>
+  </div>
 
-</div>
+  <script>
+    const { createApp } = Vue
 
-<script>
-  const { createApp } = Vue
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          text: 'Benvenuto in Vue',
+          img: './img/hello_Mario.jpg',
+          containerClass: 'container',
+          colorClass: 'text-title',
+          subtitleClass: 'text-subtitle'
 
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!',
-        text: 'Benvenuto in Vue',
-        img: './img/hello_Mario.jpg'
+        }
       }
-    }
-  }).mount('#app')
-</script>
-    
+    }).mount('#app')
+  </script>
+
 </body>
+
 </html>
